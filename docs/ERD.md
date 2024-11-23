@@ -26,3 +26,14 @@ erDiagram
     GAME_TEMPLATE ||--o{ CHARACTER_TEMPLATE : has
     CHARACTER_TEMPLATE ||--o{ CHARACTER_ATTRIBUTES : has
 ```
+
+## Player
+
+```mermaid
+erDiagram
+    PLAYER {
+        uuid id PK
+        string alias
+        string email
+    }
+```

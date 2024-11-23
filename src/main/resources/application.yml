@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: realmWeaver
+  datasource:
+    url: jdbc:mysql://localhost:5433/test
+    username: test
+    password: test
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog.json
+    user: test
+    password: test

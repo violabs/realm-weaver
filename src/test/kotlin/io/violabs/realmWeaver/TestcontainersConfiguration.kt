@@ -13,6 +13,12 @@ class TestcontainersConfiguration {
 	@ServiceConnection
 	fun postgresContainer(): PostgreSQLContainer<*> {
 		return PostgreSQLContainer(DockerImageName.parse("postgres:latest"))
+			.withUsername("test")
+			.withPassword("test")
+			.withDatabaseName("test")
+			.apply {
+				setPortBindings(listOf("5433:5432"))
+			}
 	}
 
 }

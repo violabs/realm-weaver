@@ -1,0 +1,19 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "db_initialization",
+        "author": "stallnick",
+        "changes": [
+          {
+            "sqlFile": {
+              "path": "changesets/player/init_db.sql",
+              "relativeToChangelogFile": true,
+              "encoding": "UTF-8"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
