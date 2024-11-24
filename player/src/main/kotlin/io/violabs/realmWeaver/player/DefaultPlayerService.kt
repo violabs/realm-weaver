@@ -1,7 +1,6 @@
 package io.violabs.realmWeaver.player
 
 import io.violabs.realmWeaver.core.rest.CreatePlayerRequest
-import io.violabs.realmWeaver.core.rest.FullPlayerView
 import io.violabs.realmWeaver.core.rest.IdPlayerView
 import io.violabs.realmWeaver.core.rest.PlayerView
 import io.violabs.realmWeaver.core.service.PlayerService
@@ -19,15 +18,15 @@ class DefaultPlayerService(private val playerRepo: PlayerRepo) : PlayerService {
     override fun save(createRequest: CreatePlayerRequest): IdPlayerView {
         log.info { "Saving player: $createRequest" }
 
-        requireNotNull(createRequest.alias) { "Alias is required" }
-        requireNotNull(createRequest.email) { "Email is required" }
+        requireNotNull(createRequest.alias) { "createPlayerRequest.alias is required" }
+        requireNotNull(createRequest.email) { "createPlayerRequest.email is required" }
 
         val player = PlayerEntity(
             alias = createRequest.alias!!,
             email = createRequest.email!!
         ).also(playerRepo::save)
 
-        requireNotNull(player.id) { "Player id is required" }
+        requireNotNull(player.id) { "player.id is required" }
 
         return object : IdPlayerView {
             override val id: UUID = player.id
