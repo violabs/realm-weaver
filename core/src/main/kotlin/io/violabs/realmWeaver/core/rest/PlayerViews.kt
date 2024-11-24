@@ -4,6 +4,7 @@ import java.util.UUID
 
 interface PlayerView {
     enum class Type(val clazz: Class<out PlayerView>) {
+        DEFAULT(IdPlayerView::class.java),
         FULL(FullPlayerView::class.java)
     }
 }
