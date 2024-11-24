@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.springframework.boot.gradle.tasks.bundling.BootJar
 
 plugins {
 	val kotlinVersion = "2.0.0"
@@ -57,6 +58,12 @@ allprojects {
 
 	tasks.withType<Test> {
 		useJUnitPlatform()
+	}
+}
+
+subprojects {
+	tasks.withType<BootJar>() {
+		enabled = false
 	}
 }
 
