@@ -11,5 +11,5 @@ import java.util.UUID
 @Repository
 interface PlayerRepo : CrudRepository<PlayerEntity, UUID>, PagingAndSortingRepository<PlayerEntity, UUID> {
     fun <T: PlayerView> findAllBy(pageable: Pageable, type: Class<T>): Page<T>
-    fun <T : PlayerView> findById(id: UUID, clazz: Class<T>): T
+    fun <T : PlayerView> findById(id: UUID, clazz: Class<T>): T?
 }
